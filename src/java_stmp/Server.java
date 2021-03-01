@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package java_stmp;
 
 import java.io.*;
@@ -20,13 +15,10 @@ public class Server
         {
             serverSocket = new ServerSocket(9090);
         
-            //boolean variable to stop the server
             boolean isStopped = false;
             while(!isStopped)
             {
-                //create client socket object
                 Socket clientSocket = serverSocket.accept();
-                //create and start client thread
                 ClientThread clientThread = new ClientThread(clientSocket);
                 clientThread.start();
             }
